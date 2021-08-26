@@ -3,7 +3,7 @@ vim.wo.number = true
 vim.cmd[[set termguicolors]]
 require('plugins')
 require('bufferline').setup{}
-require('langservers')
+--require('langservers')
 require('lualine').setup{
 options = {
 	theme = 'tokyonight'
@@ -11,9 +11,6 @@ options = {
 }
 vim.g.material_style = 'deep ocean'
 require('material').set()
-vim.cmd[[autocmd BufEnter * lua require'completion'.on_attach()]]
-vim.cmd[[imap <tab> <Plug>(completion_smart_tab)]]
-vim.cmd[[imap <tab> <Plug>(completion_smart_s_tab)]]
 vim.cmd[[set completeopt=menuone,noinsert,noselect]]
 vim.cmd[[set shortmess+=c]]
 

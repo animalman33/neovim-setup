@@ -73,9 +73,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
-  ["completion-nvim"] = {
+  ["coc.nvim"] = {
     loaded = true,
-    path = "/home/animal/.local/share/nvim/site/pack/packer/start/completion-nvim"
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/coc.nvim"
+  },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/fzf-lua"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -93,9 +97,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
-  ["nvim-lspconfig"] = {
+  ["nvim-fzf"] = {
     loaded = true,
-    path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-fzf"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
