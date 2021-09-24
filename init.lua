@@ -1,4 +1,3 @@
-
 vim.wo.number = true
 vim.cmd[[set termguicolors]]
 require('plugins')
@@ -6,13 +5,14 @@ require('bufferline').setup{}
 --require('langservers')
 require('lualine').setup{
 options = {
-	theme = 'tokyonight'
+	theme = 'material-nvim'
 	}
 }
 vim.g.material_style = 'deep ocean'
-require('material').set()
+require('material').setup()
 vim.cmd[[set completeopt=menuone,noinsert,noselect]]
 vim.cmd[[set shortmess+=c]]
+vim.cmd[[colorscheme material]]
 
 
 
