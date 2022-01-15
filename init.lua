@@ -1,30 +1,23 @@
 vim.wo.number = true
 vim.cmd[[set termguicolors]]
 require('plugins')
-require('bufferline').setup{}
---require('langservers')
+require('github-theme').setup({
+	theme_style="dark_default"
+})
+vim.notify = require("notify")
 require('lualine').setup{
-options = {
-	theme = 'material-nvim'
+	options = {
+		theme = "auto"
 	}
 }
-vim.g.material_style = 'deep ocean'
-require('material').setup()
+
 vim.cmd[[set completeopt=menuone,noinsert,noselect]]
 vim.cmd[[set shortmess+=c]]
-vim.cmd[[colorscheme material]]
 
-
-
-vim.api.nvim_set_keymap('', '<C-n>', ':NvimTreeToggle<CR>', {})
-vim.api.nvim_set_keymap('', '<leader>r', 'NvimTreeRefresh<CR>', {})
-vim.api.nvim_set_keymap('', '<leader>n', ':NvimTreeFindFile<CR>', {})
-
-vim.api.nvim_set_keymap('', '[b', ':BufferLineCycleNex<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('', 'b]', ':BufferLineCyclePrev<CR>', {noremap = true, silent = true})
-
-vim.api.nvim_set_keymap('', 'bn', ':BufferLineMoveNext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('', 'bp', 'BufferLineMovePrev<CR>', {noremap = true, silent = true})
+require'nvim-tree'.setup { 
+	open_on_setup=true,
+	diagnostics={enabled=true},
+}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -35,22 +28,14 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- completion
+require('completion')
 
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+-- indent lines
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+}
+-- scrollbar
+require("scrollbar").setup({})
