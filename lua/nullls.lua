@@ -38,7 +38,7 @@ null_ls.setup({
 		require("null-ls").builtins.formatting.black,
 		require("null-ls").builtins.formatting.gofmt,
 		require("null-ls").builtins.formatting.rustfmt,
-		require("null-ls").builtins.formatting.clang_format,
+		--require("null-ls").builtins.formatting.clang_format,
 		require("null-ls").builtins.formatting.prettier,
 		require("null-ls").builtins.formatting.stylua,
 	},

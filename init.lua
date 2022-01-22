@@ -16,6 +16,7 @@ vim.cmd([[set shortmess+=c]])
 
 require("nvim-tree").setup({
 	open_on_setup = true,
+	open_on_tab = true,
 	diagnostics = { enabled = true },
 })
 
@@ -42,3 +43,21 @@ require("scrollbar").setup({})
 
 --null ls
 require("nullls")
+-- markdown
+-- require("markdown")
+
+-- trouble
+require("trouble").setup({
+	auto_open = true,
+	auto_close = true,
+})
+
+--tabline
+vim.opt.termguicolors = true
+require("bufferline").setup({})
+
+--neogit
+require("neogit").setup({
+	integrations = { diffview = true },
+})
+require("diffview").setup({})

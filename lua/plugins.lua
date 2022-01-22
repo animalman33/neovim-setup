@@ -19,9 +19,7 @@ return require("packer").startup(function()
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({})
-		end,
+		config = function() end,
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -47,4 +45,10 @@ return require("packer").startup(function()
 	})
 	use("rcarriga/nvim-notify")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("rafamadriz/friendly-snippets")
+	use("RRethy/vim-illuminate")
+	use("jiangmiao/auto-pairs")
+	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 end)
