@@ -40,7 +40,7 @@ null_ls.setup({
 		--require("null-ls").builtins.formatting.rustfmt,
 		require("null-ls").builtins.formatting.clang_format,
 		require("null-ls").builtins.formatting.prettier,
-		require("null-ls").builtins.formatting.stylua,
+		--require("null-ls").builtins.formatting.stylua,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
