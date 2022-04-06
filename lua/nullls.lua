@@ -41,16 +41,18 @@ null_ls.setup({
 		require("null-ls").builtins.formatting.clang_format,
 		require("null-ls").builtins.formatting.prettier,
 		--require("null-ls").builtins.formatting.stylua,
+		require("null-ls").builtins.diagnostics.pylint
 	},
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			-- wrap in an augroup to prevent duplicate autocmds
-			vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
-            augroup END
-            ]])
-		end
-	end,
+-- to setup auto format uncomment
+--	on_attach = function(client, bufnr)
+--		if client.supports_method("textDocument/formatting") then
+--			-- wrap in an augroup to prevent duplicate autocmds
+--			vim.cmd([[
+--            augroup LspFormatting
+--                autocmd! * <buffer>
+--                autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
+--            augroup END
+--            ]])
+--		end
+--	end,
 })

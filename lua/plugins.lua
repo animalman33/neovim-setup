@@ -30,7 +30,6 @@ return require("packer").startup(function()
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("ggandor/lightspeed.nvim")
 	use("petertriho/nvim-scrollbar")
 	use("projekt0n/github-nvim-theme")
 	use({
@@ -51,4 +50,19 @@ return require("packer").startup(function()
 	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use "lewis6991/impatient.nvim"
+	use "mfussenegger/nvim-dap"
+	use "mfussenegger/nvim-dap-python"
+	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+	use {"phaazon/hop.nvim",
+	branch = "v1",
+	config = function ()
+		require'hop'.setup{
+			case_insensitive = true,
+			char2_fallback_key = '<CR>',
+		}
+	end
+	}
+	use "tpope/vim-surround"
+	use "numToStr/Comment.nvim"
 end)

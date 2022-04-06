@@ -1,3 +1,4 @@
+require("impatient")
 vim.wo.number = true
 vim.cmd([[set termguicolors]])
 require("plugins")
@@ -12,11 +13,10 @@ require("lualine").setup({
 })
 
 vim.cmd([[set completeopt=menuone,noinsert,noselect]])
-vim.cmd([[set shortmess+=c]])
+vim.o.shortmess = vim.o.shortmess .. "c"
+--vim.cmd([[set shortmess+=c]])
 
 require("nvim-tree").setup({
-	open_on_setup = true,
-	open_on_tab = true,
 	diagnostics = { enabled = true },
 })
 
@@ -28,6 +28,10 @@ require("nvim-treesitter.configs").setup({
 		disable = {}, -- list of language that will be disabled
 	},
 })
+
+vim.opt.foldmethod = 'expr'
+vim.o.foldlevel=1
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- completion
 require("completion")
@@ -61,3 +65,15 @@ require("neogit").setup({
 	integrations = { diffview = true },
 })
 require("diffview").setup({})
+
+-- debug
+require("dapconf")
+
+-- hop
+vim.api.nvim_set_keymap('n', '<space>s', "<cmd>HopChar1<CR>", {})
+
+-- telescope
+vim.api.nvim_set_keymap('n', '<space>tf', "<cmd>Telescope find_files<CR>", {})
+
+-- comment
+require("Comment").setup()
