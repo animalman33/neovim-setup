@@ -99,6 +99,10 @@ lsp_installer.on_server_ready(function(server)
 		--on_attach = on_attach,
 		--	require("illuminate").on_attach(client)
 		--end,
+		on_attach = function(client, buffer)
+			require("lsp_signature").on_attach()
+		end
+
 	}
 	server:setup(opts)
 end)
