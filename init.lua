@@ -56,14 +56,13 @@ require("nullls")
 -- require("markdown")
 
 -- trouble
--- require("trouble").setup({
--- })
--- vim.api.nvim_set_keymap('n', '<space>tr', "<cmd>TroubleToggle<cr>", {})
+require("trouble").setup({})
+vim.api.nvim_set_keymap('n', '<space>tr', "<cmd>TroubleToggle<cr>", {})
 
---tabline
--- require("bufferline").setup({})
+-- tabline
+require("bufferline").setup({})
 
---neogit
+-- neogit
 require("neogit").setup({
 	integrations = { diffview = true },
 })
