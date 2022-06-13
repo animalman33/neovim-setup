@@ -41,7 +41,7 @@ null_ls.setup({
 		require("null-ls").builtins.formatting.clang_format,
 		require("null-ls").builtins.formatting.prettier,
 		--require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.diagnostics.pylint
+		-- require("null-ls").builtins.diagnostics.pylint
 	},
 -- to setup auto format uncomment
 --	on_attach = function(client, bufnr)
