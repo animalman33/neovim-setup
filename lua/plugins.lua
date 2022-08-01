@@ -110,4 +110,5 @@ return require("packer").startup(function()
 		end
 	}
 	use 'ggandor/lightspeed.nvim'
+	use 'tpope/vim-repeat'
 end)
