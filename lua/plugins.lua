@@ -2,7 +2,7 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
+	-- use("williamboman/nvim-lsp-installer")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
@@ -91,8 +91,11 @@ return require("packer").startup(function()
 	use "EdenEast/nightfox.nvim"
 	use { 'echasnovski/mini.nvim', branch = 'stable' }
 	use({ "iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
+		run = function()
+			vim.fn("mkdp#util#install")
+		end,
 		setup = function()
+
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" }, })
@@ -111,4 +114,29 @@ return require("packer").startup(function()
 	}
 	use 'ggandor/lightspeed.nvim'
 	use 'tpope/vim-repeat'
+	use 'antoinemadec/FixCursorHold.nvim'
+	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons', -- optional, for file icons
+		},
+	}
+	use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+		require("toggleterm").setup()
+	end }
+	use 'glepnir/dashboard-nvim'
+	use { "williamboman/mason.nvim" }
+	use 'simrat39/rust-tools.nvim'
+	use "williamboman/mason-lspconfig.nvim"
+	use {
+		"nvim-neorg/neorg",
+		-- tag = "latest",
+		ft = "norg",
+		after = "nvim-treesitter", -- You may want to specify Telescope here as well
+		config = function()
+			require('neorg').setup {
+			}
+		end
+	}
+
 end)

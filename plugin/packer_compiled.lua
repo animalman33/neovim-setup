@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["diffview.nvim"] = {
     commands = { "Neogit" },
@@ -144,6 +154,16 @@ _G.packer_plugins = {
     path = "/home/animal/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["mini.nvim"] = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/mini.nvim",
@@ -157,6 +177,15 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/animal/.local/share/nvim/site/pack/packer/opt/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  neorg = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\nneorg\frequire\0" },
+    load_after = {},
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/opt/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -188,11 +217,6 @@ _G.packer_plugins = {
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -207,6 +231,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
     url = "https://github.com/petertriho/nvim-scrollbar"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -229,10 +258,15 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["project.nvim"] = {
-    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\2\15update_cwd\2\venable\2\1\0\2\15update_cwd\2\20respect_buf_cwd\2\nsetup\17project_nvim\frequire\0" },
+    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\2\venable\2\15update_cwd\2\1\0\2\15update_cwd\2\20respect_buf_cwd\2\nsetup\17project_nvim\frequire\0" },
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -243,6 +277,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/animal/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/home/animal/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
@@ -278,25 +318,39 @@ try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\
 time([[Setup for markdown-preview.nvim]], false)
 -- Config for: project.nvim
 time([[Config for project.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\2\15update_cwd\2\venable\2\1\0\2\15update_cwd\2\20respect_buf_cwd\2\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
+try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\24update_focused_file\1\0\2\venable\2\15update_cwd\2\1\0\2\15update_cwd\2\20respect_buf_cwd\2\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
 time([[Config for project.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit', 'diffview.nvim'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TroubleToggle lua require("packer.load")({'trouble.nvim'}, { cmd = "TroubleToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit', 'diffview.nvim'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType norg ++once lua require("packer.load")({'neorg'}, { ft = "norg" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/animal/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], true)
+vim.cmd [[source /home/animal/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]]
+time([[Sourcing ftdetect script at: /home/animal/.local/share/nvim/site/pack/packer/opt/neorg/ftdetect/norg.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
