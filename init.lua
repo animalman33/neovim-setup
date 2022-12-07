@@ -23,8 +23,11 @@ vim.opt.termguicolors = true
 vim.wo.relativenumber = true
 
 -- colorscheme
-vim.g.tokyonight_style = "night"
-vim.cmd [[colorscheme tokyonight]]
+-- vim.g.tokyonight_style = "night"
+-- vim.cmd [[colorscheme tokyonight]]
+
+-- require('nightfox').compile() -- lua api version
+vim.cmd("colorscheme duskfox")
 
 vim.notify = require("notify")
 
@@ -40,6 +43,17 @@ vim.g.mapleader = " "
 vim.cmd([[set completeopt=menuone,noinsert,noselect]])
 vim.o.shortmess = vim.o.shortmess .. "c"
 
+
+-- treesitter
+require("nvim-treesitter.configs").setup {
+	auto_install = true,
+	highlight = {
+		enable = true
+	},
+	indent = {
+		enable = true,
+	}
+}
 -- vim.opt.foldmethod = 'expr'
 -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 -- vim.opt.foldlevel = 3
@@ -72,7 +86,7 @@ vim.api.nvim_set_keymap('n', '<leader>tr', "<cmd>TroubleToggle<cr>", {})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", {})
-vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", {})
+vim.api.nvim_set_keymap('n', '<leader>fw', "<cmd>lua require('telescope.builtin').live_grep()<cr>", {})
 vim.api.nvim_set_keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", {})
 vim.api.nvim_set_keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", {})
 vim.api.nvim_set_keymap('n', '<leader>pp', "<cmd>Telescope projects<cr>", {})
@@ -91,6 +105,7 @@ require("project_nvim").setup {
 		update_cwd = true
 	}
 }
+
 
 -- no more virtual_text
 vim.diagnostic.config({
@@ -117,6 +132,8 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
 	command = "lua vim.diagnostic.open_float(nil, {focus=false})"
 })
 
+
+
 --which key
 
 require("which-key").setup({
@@ -131,6 +148,20 @@ require("toggleterm").setup()
 
 vim.api.nvim_set_keymap('t', '<Esc>', "<C-\\><C-n>", {})
 
-vim.api.nvim_set_keymap('n', '<leader>ct', ":ToggleTerm<cr>", {})
-
+vim.api.nvim_set_keymap('n', '<leader>tt', ":ToggleTerm<cr>", {})
+require('leap').set_default_keymaps()
 require("dash")
+
+-- neogit
+require("neogit").setup({
+	integrations = { diffview = true },
+})
+require("diffview").setup({})
+
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<leader>ng', '<cmd>lua require("neogit").open()<cr>', opts)
+
+
+require("autopairs")
+

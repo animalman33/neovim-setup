@@ -3,10 +3,10 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "clangd", "cmake", 'cssls', 'dockerls', 'gopls', 'sumneko_lua', 'pyright', 'rust_analyzer' }
 })
 
-local coq = require("coq")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local capabilities = coq.lsp_ensure_capabilities()
-
+-- local coq = require("coq")
+-- local capabilities = coq.lsp_ensure_capabilities()
 
 require("mason-lspconfig").setup_handlers {
 	-- The first entry (without a key) will be the default handler

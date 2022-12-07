@@ -2,8 +2,6 @@ require("mini.comment").setup({})
 
 require("mini.cursorword").setup({})
 
-require("mini.pairs").setup({})
-
 require("mini.surround").setup({
 	mappings = {
 		add = '<leader>sa', -- Add surrounding in Normal and Visual modes
@@ -20,8 +18,3 @@ require("mini.tabline").setup({})
 
 require("mini.trailspace").setup({})
 
--- require("mini.jump2d").setup({
--- 	mappings = {
--- 		start_jumping = '<leader>s'
--- 	}
--- })

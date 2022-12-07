@@ -1,5 +1,4 @@
-return require("packer").startup(function()
-	use("wbthomason/packer.nvim")
+return require("packer").startup(function() use("wbthomason/packer.nvim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("neovim/nvim-lspconfig")
 	use("folke/tokyonight.nvim")
@@ -7,6 +6,7 @@ return require("packer").startup(function()
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
+	use("EdenEast/nightfox.nvim")
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -19,30 +19,17 @@ return require("packer").startup(function()
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
-	use("lukas-reineke/indent-blankline.nvim")
+	} use("lukas-reineke/indent-blankline.nvim")
 	use("petertriho/nvim-scrollbar")
 	use({
 		"folke/which-key.nvim",
 	})
 	use("rcarriga/nvim-notify")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("rafamadriz/friendly-snippets")
-	use({
-		"TimUntersberger/neogit",
-		requires = "nvim-lua/plenary.nvim",
-		cmd = { "Neogit" },
-		config = function()
-			require("neogit").setup({
-				integrations = { diffview = true },
-			})
-			require("diffview").setup({})
-		end
-	})
+	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	use({
 		"sindrets/diffview.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		cmd = { "Neogit" }
 	})
 	use "lewis6991/impatient.nvim"
 	use "mfussenegger/nvim-dap"
@@ -61,7 +48,7 @@ return require("packer").startup(function()
 		end,
 		ft = { "markdown" }, })
 	use "ahmedkhalf/project.nvim"
-	use 'ggandor/lightspeed.nvim'
+	use 'ggandor/leap.nvim'
 	use 'tpope/vim-repeat'
 	use 'antoinemadec/FixCursorHold.nvim'
 	use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
@@ -69,11 +56,19 @@ return require("packer").startup(function()
 	use { "williamboman/mason.nvim" }
 	use 'simrat39/rust-tools.nvim'
 	use "williamboman/mason-lspconfig.nvim"
-	use { 'ms-jpq/coq_nvim',
-		branch = 'coq' }
-	use { 'ms-jpq/coq.artifacts',
-		branch = 'artifacts' }
-	use { 'ms-jpq/coq.thirdparty',
-		branch = '3p' }
-
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+	use "rafamadriz/friendly-snippets"
+	-- use { 'ms-jpq/coq_nvim',
+	-- 	branch = 'coq' }
+	-- use { 'ms-jpq/coq.artifacts',
+	-- 	branch = 'artifacts' }
+	-- use { 'ms-jpq/coq.thirdparty',
+	-- 	branch = '3p' }
+	use {"windwp/nvim-autopairs"}
 end)
