@@ -27,7 +27,7 @@ cmp.setup({
 				fallback()
 			end
 		end,
-		['C-k'] = function(fallback)
+		['<C-k>'] = function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			else
@@ -39,10 +39,8 @@ cmp.setup({
 		{ name = 'nvim_lsp' },
 		-- { name = "cmdline" },
 		-- { name = "path" },
-		-- { name = 'vsnip' }, -- For vsnip users.
-		{ name = 'luasnip' }, -- For luasnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
+		{ name = 'luasnip' },
+		{ name = 'calc' }, --calculator
 	}, {
 		{ name = 'buffer' },
 	})
@@ -54,24 +52,6 @@ cmp.setup.filetype('gitcommit', {
 		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
 	}, {
 		{ name = 'buffer' },
-	})
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = 'buffer' }
-	}
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
 	})
 })
 
