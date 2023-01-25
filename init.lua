@@ -1,22 +1,44 @@
 -- install packer if it is the first startup
-local first_startup = false
+-- local first_startup = false
+--
+-- local fn = vim.fn
+--
+-- local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+-- if fn.empty(fn.glob(install_path)) > 0 then
+-- 	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+-- 	first_startup = true
+-- end
+--
+-- if first_startup then
+-- 	require("plugins")
+-- 	vim.cmd [[ PackerSync ]]
+-- 	require("impatient")
+-- else
+-- 	require("impatient")
+-- 	require("plugins")
+-- end
 
-local fn = vim.fn
+-- set leader key
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-	first_startup = true
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 
-if first_startup then
-	require("plugins")
-	vim.cmd [[ PackerSync ]]
-	require("impatient")
-else
-	require("impatient")
-	require("plugins")
-end
+vim.g.mapleader = " "
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+
+require("impatient")
+
 
 -- vim.wo.number = true
 vim.opt.termguicolors = true
@@ -36,9 +58,6 @@ require("lualine").setup({
 		theme = "auto",
 	},
 })
-
--- set leader key
-vim.g.mapleader = " "
 
 vim.cmd([[set completeopt=menuone,noinsert,noselect]])
 vim.o.shortmess = vim.o.shortmess .. "c"

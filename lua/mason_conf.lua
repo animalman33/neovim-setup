@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "clangd", "cmake", 'cssls', 'dockerls', 'gopls', 'sumneko_lua', 'pyright', 'rust_analyzer' }
+	ensure_installed = {}
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
