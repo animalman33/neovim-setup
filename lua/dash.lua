@@ -1,22 +1,29 @@
 local db = require("dashboard")
 
--- db.custom_conter = {
--- 	{ icon = "", desc = "Find file", action = "Telescope find_files", shortcut = "SPC f f"},
---
--- }
-
-
-  db.custom_center = {
-      {icon = '  ',
-      desc = 'Find  File                              ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f'},
-      {icon = '  ',
-      desc ='Project Finder                           ',
-      action =  'Telescope projects',
-      shortcut = 'SPC p p'},
-      {icon = '  ',
-      desc = 'Find  word                              ',
-      action = 'Telescope live_grep',
-      shortcut = 'SPC f w'},
+db.setup({
+    theme = 'doom',
+    config = {
+        center = {
+            {
+                icon = '  ',
+                icon_hl = 'Title',
+                desc = 'Find File           ',
+                desc_hl = 'String',
+                key = 'b',
+                keymap = 'SPC f f',
+                key_hl = 'Number',
+                action = 'Telescope find_files'
+            },
+            {
+                icon = '  ',
+                icon_hl = 'Title',
+                desc = 'Project Finder',
+                desc_hl = 'String',
+                key = 'f',
+                keymap = 'SPC p p',
+                key_hl = 'Number',
+                action = 'Telescope projects'
+            },
+        },
     }
+})

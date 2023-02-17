@@ -1,4 +1,22 @@
 local cmp = require 'cmp'
+
+local function select_next(fallback)
+	if cmp.visible() then
+		cmp.select_next_item()
+	else
+		fallback()
+	end
+end
+
+local function select_prev(fallback)
+
+	if cmp.visible() then
+		cmp.select_prev_item()
+	else
+		fallback()
+	end
+end
+
 cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -18,22 +36,11 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<TAB>'] = cmp.mapping.confirm({ select = true }),
+		['<TAB>'] = select_next,
+		['<S-TAB>'] = select_prev,
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
-		['<C-j>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-		end,
-		['<C-k>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end,
+		['<C-j>'] = select_next,
+		['<C-k>'] = select_prev
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
@@ -63,29 +70,3 @@ cmp.event:on(
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- vim.g.coq_settings = {
--- 	auto_start = 'shut-up',
--- }
---
--- require("coq")
---
--- require("coq_3p") {
--- 	{ src = "nvimlua", short_name = "nLUA", conf_only = true },
--- 	{ src = "bc", short_name = "MATH", precision = 6 },
--- 	{ src = "dap" },
--- }
-
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)

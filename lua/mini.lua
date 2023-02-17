@@ -16,5 +16,5 @@ require("mini.surround").setup({
 
 require("mini.tabline").setup({})
 
-require("mini.trailspace").setup({})
+-- require("mini.trailspace").setup({})
 
