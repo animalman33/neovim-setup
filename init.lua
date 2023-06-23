@@ -26,7 +26,7 @@ vim.opt.termguicolors = true
 vim.wo.relativenumber = true
 vim.wo.number = true
 
-vim.cmd("colorscheme duskfox")
+-- vim.cmd("colorscheme duskfox")
 
 --vim.cmd([[set completeopt=menuone,noinsert,noselect]])
 --vim.o.completeopt = "menuone,noinsert,noselect"
@@ -40,9 +40,11 @@ require("nullls")
 
 -- no more virtual_text
 vim.diagnostic.config({
-    virtual_text = false,
+    -- virtual_text = false,
     underline = true,
-    signs = true
+    signs = true,
+    -- update_in_insert = true,
+    severity_sort = true
 })
 
 -- make text stop shifting
@@ -50,18 +52,18 @@ vim.wo.signcolumn = "yes"
 
 -- set update time to 1 second (shows auto pop up after 1 second and writes to swap file every second)
 vim.o.updatetime = 1000
+vim.api.nvim_set_option("clipboard","unnamedplus")
 
 -- show error/warning on hover
-vim.api.nvim_create_autocmd("CursorHold", {
-    pattern = "*",
-    command = "lua vim.diagnostic.open_float(nil, {focus=false})"
-})
-
-vim.api.nvim_create_autocmd("CursorHoldI", {
-    pattern = "*",
-    command = "lua vim.diagnostic.open_float(nil, {focus=false})"
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--     pattern = "*",
+--     command = "lua vim.diagnostic.open_float(nil, {focus=false})"
+-- })
+--
+-- vim.api.nvim_create_autocmd("CursorHoldI", {
+--     pattern = "*",
+--     command = "lua vim.diagnostic.open_float(nil, {focus=false})"
+-- })
 -- jump around
-require('leap').set_default_keymaps()
 -- keybindings
 require("keybinds")

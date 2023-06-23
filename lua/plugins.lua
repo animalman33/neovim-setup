@@ -1,8 +1,10 @@
 return {
 	"folke/lazy.nvim",
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
 		config = function() require("highlight") end,
-		event = "VeryLazy"
+		--event = "VeryLazy"
 	},
 	"neovim/nvim-lspconfig",
 	{
@@ -17,7 +19,6 @@ return {
 		end,
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
-	{ "EdenEast/nightfox.nvim", lazy = true },
 	{
 		"folke/trouble.nvim",
 		keys = { { '<leader>tr', "<cmd>TroubleToggle<cr>", desc = "Trouble" } },
@@ -29,17 +30,68 @@ return {
 	},
 	("nvim-lua/plenary.nvim"),
 	{
-		'nvim-telescope/telescope.nvim',
-		keys = { { '<leader>ff', ':Telescope file_browser<CR>',                              desc = "Find Files" },
-			{ '<leader>fw',  "<cmd>lua require('telescope.builtin').live_grep()<cr>",            desc = "Find Word" },
-			{ '<leader>fb',  "<cmd>lua require('telescope.builtin').buffers()<cr>",              desc = "Find Buffer" },
-			{ '<leader>fh',  "<cmd>lua require('telescope.builtin').help_tags()<cr>",            desc = "Find help tags" },
-			{ '<leader>pp',  "<cmd>Telescope projects<cr>",                                      desc = "Find Project" },
-			{ 'gr',          "<cmd>lua require('telescope.builtin').lsp_references()<cr>",       desc = "Lsp refrence" },
-			{ 'gi',          "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>",  desc = "Lsp implementation" },
-			{ 'gd',          "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>",      desc = "Lsp definition" },
-			{ '<leader>D',   "<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>", desc = "Lsp type definition" },
-			{ '<leader>fkb', "<cmd>lua require('telescope.builtin').keymaps()<cr>",              desc = "Find Keymap" },
+		"nvim-telescope/telescope.nvim",
+		keys = {
+			{
+				'<leader>ff',
+				':Telescope find_files<CR>',
+				desc =
+				"Find Files"
+			},
+			{
+				'<leader>fw',
+				"<cmd>lua require('telescope.builtin').live_grep()<cr>",
+				desc =
+				"Find Word"
+			},
+			{
+				'<leader>fb',
+				"<cmd>lua require('telescope.builtin').buffers()<cr>",
+				desc =
+				"Find Buffer"
+			},
+			{
+				'<leader>fh',
+				"<cmd>lua require('telescope.builtin').help_tags()<cr>",
+				desc =
+				"Find help tags"
+			},
+			{
+				'<leader>pp',
+				"<cmd>Telescope projects<cr>",
+				desc =
+				"Find Project"
+			},
+			{
+				'gr',
+				"<cmd>lua require('telescope.builtin').lsp_references()<cr>",
+				desc =
+				"Lsp refrence"
+			},
+			{
+				'gi',
+				"<cmd>lua require('telescope.builtin').lsp_implementations()<cr>",
+				desc =
+				"Lsp implementation"
+			},
+			{
+				'gd',
+				"<cmd>lua require('telescope.builtin').lsp_definitions()<cr>",
+				desc =
+				"Lsp definition"
+			},
+			{
+				'<leader>D',
+				"<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>",
+				desc =
+				"Lsp type definition"
+			},
+			{
+				'<leader>fkb',
+				"<cmd>lua require('telescope.builtin').keymaps()<cr>",
+				desc =
+				"Find Keymap"
+			},
 		},
 		config = function()
 			require('fuzzy')
@@ -54,7 +106,8 @@ return {
 			require("which-key").setup({})
 		end
 	}),
-	{ "rcarriga/nvim-notify",
+	{
+		"rcarriga/nvim-notify",
 		event = "VeryLazy",
 		config = function()
 			vim.notify = require("notify")
@@ -81,40 +134,87 @@ return {
 		dependencies = "nvim-lua/plenary.nvim",
 	}),
 	"lewis6991/impatient.nvim",
-	{ "mfussenegger/nvim-dap",
+	{
+		"mfussenegger/nvim-dap",
 		lazy = true,
 		keys = {
-			{ '<leader>dc',  '<cmd>lua require"dap".continue()<cr>',                        desc = "Start or Continue Debug" },
-			{ '<leader>so',  '<cmd>lua require"dap".step_over()<cr>',                       desc = "Dap step over" },
-			{ '<leader>si',  '<cmd>lua require"dap".set_into()<cr>',                        desc = "Dap step into" },
-			{ '<leader>sot', '<cmd>lua require"dap".step_out()<cr>',                        desc = "Dap step out" },
-			{ '<leader>bp',  '<cmd>lua require"dap".toggle_breakpoint()<cr>',               desc = "Toggle breakpoint" },
-			{ '<leader>ro',  '<cmd>lua require"dap".repl.open()<cr>',                       desc = "Dap open repl" },
-			{ '<leader>rl',  '<cmd>lua require"dap".run_last()<cr>',                        desc = "Dap run last" },
-			{ '<leader>dt',  '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', desc = "Debug test" } },
+			{
+				'<leader>dc',
+				'<cmd>lua require"dap".continue()<cr>',
+				desc =
+				"Start or Continue Debug"
+			},
+			{
+				'<leader>so',
+				'<cmd>lua require"dap".step_over()<cr>',
+				desc =
+				"Dap step over"
+			},
+			{
+				'<leader>si',
+				'<cmd>lua require"dap".step_into()<cr>',
+				desc =
+				"Dap step into"
+			},
+			{
+				'<leader>spo',
+				'<cmd>lua require"dap".step_out()<cr>',
+				desc =
+				"Dap step out"
+			},
+			{
+				'<leader>bp',
+				'<cmd>lua require"dap".toggle_breakpoint()<cr>',
+				desc =
+				"Toggle breakpoint"
+			},
+			{
+				'<leader>ro',
+				'<cmd>lua require"dap".repl.open()<cr>',
+				desc =
+				"Dap open repl"
+			},
+			{
+				'<leader>rl',
+				'<cmd>lua require"dap".run_last()<cr>',
+				desc =
+				"Dap run last"
+			},
+			{
+				'<leader>dt',
+				'<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>',
+				desc =
+				"Debug test"
+			} },
 		config = function()
 			require("dapconf")
 		end,
-		dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap" }
+		dependencies = { "rcarriga/nvim-dap-ui", "mfussenegger/nvim-dap", "jay-babu/mason-nvim-dap.nvim" }
 	},
-	{ "jay-babu/mason-nvim-dap.nvim",
+	{
+		"jay-babu/mason-nvim-dap.nvim",
 		lazy = true,
-
 		config = function()
 			require("mason_dap")
 		end,
 	},
-	{ "rcarriga/nvim-dap-ui",   lazy = true },
+	{ "rcarriga/nvim-dap-ui", lazy = true },
 	{ "mfussenegger/nvim-dap-python", lazy = true, dependencies = { "mfussenegger/nvim-dap" }
 	},
 	'ray-x/lsp_signature.nvim',
-	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', dependencies = 'nvim-telescope/telescope.nvim', lazy = true },
-	{ 'echasnovski/mini.nvim', branch = 'stable',
-		event = "VeryLazy",
-		config = function()
-			require("mini")
-		end },
-	{ "ahmedkhalf/project.nvim",
+	{
+		'nvim-telescope/telescope-fzf-native.nvim',
+		build = 'make',
+		dependencies = 'nvim-telescope/telescope.nvim',
+		lazy = true
+	},
+	-- { 'echasnovski/mini.nvim', branch = 'stable',
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("mini")
+	-- 	end },
+	{
+		"ahmedkhalf/project.nvim",
 		event = "VeryLazy",
 		config = function()
 			require("project_nvim").setup {
@@ -127,27 +227,40 @@ return {
 			}
 		end
 	},
-	'ggandor/leap.nvim',
-	{ 'tpope/vim-repeat',                         lazy = true },
-	{ "akinsho/toggleterm.nvim", version = 'v2.*',
+	{
+		'ggandor/leap.nvim',
+		config = function()
+			require('leap').set_default_keymaps()
+		end,
+		event = "VeryLazy"
+	},
+	{ 'tpope/vim-repeat',     lazy = true },
+	{
+		"akinsho/toggleterm.nvim",
+		version = 'v2.*',
 		keys =
 		{ { '<leader>tt', ":ToggleTerm<cr>", desc = "Toggle Terminal" } },
 		config = function()
 			require("toggleterm").setup()
 		end,
-		cmd = { "ToggleTerm" } },
-	{ 'glepnir/dashboard-nvim',
+		cmd = { "ToggleTerm" }
+	},
+	{
+		'glepnir/dashboard-nvim',
 		event = "VimEnter",
 		config = function()
 			require('dash')
 		end,
-		dependencies = { { 'nvim-tree/nvim-web-devicons' } } },
-	{ "williamboman/mason.nvim",
+		dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+	},
+	{
+		"williamboman/mason.nvim",
 		config = function()
 			require("mason_conf")
 		end
 	},
-	{ 'simrat39/rust-tools.nvim',
+	{
+		'simrat39/rust-tools.nvim',
 		lazy = true,
 		config = function()
 			require("rust")
@@ -155,18 +268,22 @@ return {
 		dependencies = { { "williamboman/mason.nvim" } },
 		ft = "rust"
 	},
-	{ "williamboman/mason-lspconfig.nvim",
+	{
+		"williamboman/mason-lspconfig.nvim",
 		dependencies = { { "williamboman/mason.nvim" } },
 		config = function()
 			require("mason_lsp")
 		end
 	},
-	{ 'hrsh7th/cmp-nvim-lsp',
-		lazy = true },
+	{
+		'hrsh7th/cmp-nvim-lsp',
+		lazy = true
+	},
 	{ 'hrsh7th/cmp-buffer',  lazy = true },
 	{ 'hrsh7th/cmp-path',    lazy = true },
 	{ 'hrsh7th/cmp-cmdline', lazy = true },
-	{ 'hrsh7th/nvim-cmp',
+	{
+		'hrsh7th/nvim-cmp',
 		dependencies = { 'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
@@ -182,55 +299,129 @@ return {
 	{ 'L3MON4D3/LuaSnip',             lazy = true },
 	{ 'saadparwaiz1/cmp_luasnip',     lazy = true },
 	{ 'rafamadriz/friendly-snippets', lazy = true },
-	{ "windwp/nvim-autopairs", event = "VeryLazy",
+	{
+		"windwp/nvim-autopairs",
+		event = "VeryLazy",
 		config = function()
 			require("autopairs")
-		end },
-	{ 'nvim-neotest/neotest',
+		end
+	},
+	{
+		'nvim-neotest/neotest',
 		keys = {
-			{ '<leader>tc', '<cmd>lua require("neotest").run.run()<CR>',                   desc = "Run test under cursor" },
-			{ '<leader>tf', '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', desc = "Run current test file" },
-			{ '<leader>st', '<cmd>lua require("neotest").run.stop()<CR>',                  desc = "stops current test from running" },
-			{ '<leader>dt', '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', desc = "Debug test" }
+			{
+				'<leader>tc',
+				'<cmd>lua require("neotest").run.run()<CR>',
+				desc =
+				"Run test under cursor"
+			},
+			{
+				'<leader>tf',
+				'<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+				desc =
+				"Run current test file"
+			},
+			{
+				'<leader>st',
+				'<cmd>lua require("neotest").run.stop()<CR>',
+				desc =
+				"stops current test from running"
+			},
+			{
+				'<leader>dt',
+				'<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>',
+				desc =
+				"Debug test"
+			}
 		},
 		config = function()
 			require("test")
 		end,
 		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter', }
 	},
-	{ "folke/neodev.nvim",                          lazy = true },
-	{ "nvim-neotest/neotest-python",
-		lazy = true,
-		dependencies = { 'nvim-neotest/neotest' },
-	},
-	{ "nvim-neotest/neotest-plenary",
-		lazy = true,
-		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter', 'nvim-neotest/neotest' },
-	},
-	{ "nvim-neotest/neotest-vim-test",
+	{ "folke/neodev.nvim", lazy = true },
+	{
+		"nvim-neotest/neotest-python",
 		lazy = true,
 		dependencies = { 'nvim-neotest/neotest' },
 	},
 	{
-		"nvim-neorg/neorg",
-		cmd = "Neorg",
-		ft = "norg",
-		build = ":Neorg sync-parsers",
-		opts = {
-			load = {
-				["core.defaults"] = {}, -- Loads default behaviour
-				["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-				["core.norg.dirman"] = { -- Manages Neorg workspaces
-					config = {
-						workspaces = {
-							notes = "~/notes",
-						},
-					},
-				},
-			},
-		},
-		dependencies = { { "nvim-lua/plenary.nvim" } },
+		"nvim-neotest/neotest-plenary",
+		lazy = true,
+		dependencies = { 'nvim-lua/plenary.nvim', 'nvim-treesitter/nvim-treesitter', 'nvim-neotest/neotest' },
 	},
-	{ 'nvim-telescope/telescope-ui-select.nvim',    lazy = true },
-	{ 'nvim-telescope/telescope-file-browser.nvim', lazy = true },
+	{
+		"nvim-neotest/neotest-vim-test",
+		lazy = true,
+		dependencies = { 'nvim-neotest/neotest' },
+	},
+	{
+		'stevearc/dressing.nvim',
+		event = "VeryLazy"
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		-- config = function()
+		-- 	vim.cmd.colorscheme("catppuccin")
+		-- 	require("catppuccin").setup({
+		-- 		flavour = "mocha"
+		-- 	})
+		-- end
+	},
+	{
+		'projekt0n/github-nvim-theme',
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require('github-theme').setup({
+				-- ...
+			})
+
+			vim.cmd.colorscheme('github_dark_high_contrast')
+		end,
+	},
+	-- {
+	-- 	'folke/tokyonight.nvim',
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("tokyonight-night")
+	-- 	end
+	-- },
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	config = function()
+	-- 		require("noice").setup({
+	-- 			-- add any options here
+	-- 		})
+	-- 	end,
+	-- 	event = "VeryLazy",
+	-- 	dependencies = { "MunifTanjim/nui.nvim" },
+	-- },
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end
+	},
+	{
+		'numToStr/Comment.nvim',
+		event = "VeryLazy",
+		config = function()
+			require('Comment').setup()
+		end
+	},
+	-- {
+	-- 	'nvim-orgmode/orgmode',
+	-- 	config = function()
+	-- 		require('orgmode').setup_ts_grammar()
+	-- 		require('orgmode').setup {}
+	-- 	end
+	-- },
+	-- {
+	-- 	'ThePrimeagen/harpoon'
+	-- }
 }
